@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <style>
+        .completed{
+            text-decoration: line-through;
+         }
+         button{
+          background-color: lightblue;
+          border-radius: 20px;
+         }
+         button:hover{
+          background-color: white;
+         }
+         input{
+          border-radius: 20px;
+          max-width: 150px;
+         }
+
+         div{
+          text-align: center;
+         
+         }
+         
+        .btn{
+          background-color: red;
+          padding-left: 10px;
+          border-radius: 20px;
+        }
+        #particles-js
+{
+        height: 100%;
+}
+
+#header
+{
+  height: 100vh;
+  background: url(background.jpg);
+  
+}
+p{
+  padding-top: 10px;
+}
+#btn{
+  background-color: red;
+  border-radius: 20px;
+}
+#container{
+    margin-top: 100px;
+}
+#main{
+  padding-top: 100px;
+}
+        </style>
+        <title> ToDo List</title>
+   </head>
+
+   <body>
+    <section id="header">
+      <div id="particles-js">
+
+      <div class="container text-center">
+                         
+       <div class="container" id="tlist">
+<script type="text/javascript" src="particles.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+        <div class="main">
+            <h1>To do List</h1>
+            <input v-model = "newItem" type = "label" placeholder="Add new items">
+            <button @click="add">Add</button>
+            <button @click="clear">Clear All</button>
+           
+            <p align="center">Tasks to be completed : {{counter}}</p>
+       <ul>
+      
+            <li v-for = "(item,index) in items" :class="{completed:item.completed}" >
+
+
+                <input type="checkbox" v-model="item.completed">
+
+                {{item.text}} <button id="btn" type="button" @click="del(index)">X</button>
+                </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script> 
+
+    <script>
+            new Vue({
+                el : '#tlist',
+                data:{
+                    newItem : '',
+                    counter: 0,
+                    items :[],
+
+                },
+
+                methods :{
+                    add: function() {
+                        if(this.newItem!=''){
+                            this.items.push({text:this.newItem,completed:false});
+                        }
+                    
+                    this.newItem = '';
+                    this.counter++;
+                },
+                del: function(index){
+            
+                    this.items.splice(index,1);
+                    this.counter--;
+              },
+              clear:function(){
+                this.items=[];
+                this.counter=0;
+              }
+},
+              mounted(){
+                    if(localStorage.getItem("items"))this.items=JSON.parse(localStorage.getItem("items"));
+                    },
+              watch:{
+                items:{
+                  handler(){
+                    localStorage.setItem("items",JSON.stringify(this.items));
+                  },
+                  deep:true,
+                  },
+              },
+              
+           });
+         
+        </script>
+      
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    </body>
+    </html>
+
+
+
+        
