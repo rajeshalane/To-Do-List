@@ -1,61 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-       <style>
-        .completed{
-            text-decoration: line-through;
-         }
-         button{
-          background-color: rgb(173, 188, 230);
-          border-radius: 20px;
-          border-bottom-style: solid;
-          border-block-start-color: black;
-         }
-         button:hover{
-          background-color: white;
-         }
-         input{
-          border-radius: 20px;
-          max-width: 150px;
-          font-size: 4px
-         }
-
-         div{
-          text-align: center;
-         
-         }
-         
-        .btn{
-          background-color: red;
-          padding-left: 10px;
-          border-radius: 20px;
-        }
-        #particles-js
-{
-        height: 100%;
-}
-
-#header
-{
-  height: 100vh;
-  background: url(background.jpg);
-  
-}
-p{
-  padding-top: 10px;
-}
-#btn{
-  background-color: red;
-  border-radius: 20px;
-}
-#container{
-    margin-top: 100px;
-}
-#main{
-  padding-top: 100px;
-}
-        </style>
         <title> ToDo List</title>
+        <link rel="stylesheet" href="styles.css">
    </head>
 
    <body>
@@ -65,25 +12,21 @@ p{
       <div class="container text-center">
                          
        <div class="container" id="tlist">
-<script type="text/javascript" src="particles.js"></script>
+        <script type="text/javascript" src="particles.js"></script>
         <script type="text/javascript" src="app.js"></script>
         <div class="main">
-            <h1>To do List</h1>
+            <h1>TODO LIST</h1>
             <br>
             <input v-model = "newItem" type = "label" placeholder="Add new items">
-            <button @click="add">Add</button>
-            <button @click="clear">Clear All</button>
+            <button class="btn btn-success btn-sm" @click="add">Add</button>
+            <button class="btn btn-fail btn-sm" @click="clear">Clear All</button>
             <br><br>
             <p align="center"><b>Tasks to be completed : {{counter}}</b></p>
        <ul>
-      
-            <li v-for = "(item,index) in items" :class="{completed:item.completed}" >
-
-
+            <p v-for = "(item,index) in items" :class="{completed:item.completed}" >
                 <input type="checkbox" v-model="item.completed">
-
                 {{item.text}} <button id="btn" type="button" @click="del(index)">X</button>
-                </li>
+                </p>
         </ul>
       </div>
     </div>

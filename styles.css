@@ -1,0 +1,75 @@
+.completed
+{
+  text-decoration: line-through;
+}
+
+button
+{
+  background-color: rgb(173, 188, 230);
+  border-radius: 20px;
+  border-bottom-style: solid;
+  border-block-start-color: black;
+}
+
+button:hover
+{
+  background-color: white;
+}
+
+input
+{
+  border-radius: 20px;
+  max-width: 150px;
+  font-size: 4px         
+}
+
+div
+{
+  text-align: center;
+}
+         
+.btn
+{
+  background-color: red;
+  padding-left: 10px;
+  border-radius: 20px;
+}
+
+#particles-js
+{
+  height: 100%;
+}
+
+p
+{
+  padding-top: 10px;
+}
+
+#header
+{
+  height: 100vh;
+  background: url(background.jpg);
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+
+#btn
+{
+  background-color: red;
+  border-radius: 20px;
+}
+
+#container
+{
+    margin-top: 100px;
+}
+
+#main
+{
+  padding-top: 100px;
+}
